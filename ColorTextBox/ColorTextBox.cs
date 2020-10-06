@@ -41,10 +41,19 @@ namespace ColorTextBox
                 || (!is_input_decimal && (x >= '0' && x <= '9' || x >= 'A' && x <= 'F'));
         }
 
+        private string StrNornalisation (string str)
+        {
+            string result = "";
+            foreach (char ch in str)
+                result += IsDigit(ch) ? ch.ToString() : "";
+            return result;
+        }
+
         protected override void OnTextChanged(EventArgs e)
         {
             //находим наше число из текста в число, учитывая систему счисления
             int x = 0;
+            Text = StrNornalisation(Text);
             if (is_input_decimal && int.TryParse(Text, out x)
                 || !is_input_decimal && int.TryParse(Text, System.Globalization.NumberStyles.HexNumber, CultureInfo.InvariantCulture, out x))
             {
