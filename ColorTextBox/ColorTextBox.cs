@@ -15,8 +15,29 @@ namespace ColorTextBox
         //так как ввод у нас может быть в 10 и 16, необходимо знать, как мы сейчас вводим
         //по умолчанию вводим в 10 системе, если не в ней, то в 16
         private bool is_input_decimal = true;
-        public bool Is_input_decimal { get => is_input_decimal; set => is_input_decimal = value; }
-        
+        public bool Is_input_decimal
+        {
+            get
+            {
+                return is_input_decimal;
+            }
+            set
+            {
+                is_input_decimal = value;
+                TextUpdate();
+            }
+        }
+
+        private void TextUpdate()
+        {
+            int x = 0;
+            // число было в 10, x нужно в 16
+            if (!is_input_decimal && int.TryParse(Text, out x)
+                // число было в 16, x нужно в 10
+                || is_input_decimal && int.TryParse(Text, System.Globalization.NumberStyles.HexNumber, CultureInfo.InvariantCulture, out x))
+                Text = Convert.ToString(x, is_input_decimal ? 10 : 16).ToUpper();
+        }
+
         public ColorTextBox()
         {
             InitializeComponent();
