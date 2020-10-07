@@ -19,7 +19,7 @@ namespace test
 
         private void button1_Click(object sender, EventArgs e)
         {
-            colorTextBox1.Is_input_decimal = !colorTextBox1.Is_input_decimal;
+            colorRGBPicker1.Color = Color.Pink;
         }
     }
 }

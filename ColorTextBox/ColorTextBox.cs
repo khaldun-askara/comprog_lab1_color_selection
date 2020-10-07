@@ -28,6 +28,26 @@ namespace ColorTextBox
             }
         }
 
+        public int Color
+        {
+            get
+            {
+                int x = 0;
+                if (is_input_decimal)
+                    int.TryParse(Text, out x);
+                else
+                    int.TryParse(Text,
+                                System.Globalization.NumberStyles.HexNumber,
+                                System.Globalization.CultureInfo.InvariantCulture,
+                                out x);
+                return x;
+            }
+            set
+            {
+                Text = Convert.ToString(value, is_input_decimal ? 10 : 16).ToUpper();
+            }
+        }
+
         private void TextUpdate()
         {
             int x = 0;
