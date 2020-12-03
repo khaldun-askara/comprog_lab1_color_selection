@@ -21,5 +21,10 @@ namespace test
         {
             colorRGBPicker1.Color = Color.Pink;
         }
+
+        private void colorRGBPicker1_colorChanged(Color color)
+        {
+            MessageBox.Show("Вау работает");
+        }
     }
 }

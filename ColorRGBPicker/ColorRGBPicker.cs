@@ -39,8 +39,8 @@ namespace ColorRGBPicker
             }
         }
 
-        delegate void ColorChanged(Color color);
-        event ColorChanged colorChanged;
+        public delegate void ColorChanged(Color color);
+        public event ColorChanged colorChanged;
 
         //private int GetColor(ColorTextBox.ColorTextBox cTB)
         //{

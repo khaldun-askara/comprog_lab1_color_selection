@@ -49,12 +49,13 @@
             this.colorRGBPicker1.Name = "colorRGBPicker1";
             this.colorRGBPicker1.Size = new System.Drawing.Size(552, 264);
             this.colorRGBPicker1.TabIndex = 0;
+            this.colorRGBPicker1.colorChanged += new ColorRGBPicker.ColorRGBPicker.ColorChanged(this.colorRGBPicker1_colorChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(815, 447);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.colorRGBPicker1);
             this.Name = "Form1";
